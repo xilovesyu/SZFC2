@@ -15,7 +15,7 @@ import us.codecraft.webmagic.Spider;
 public class SpiderTask {
     @Scheduled(cron = "0/5 * * * * ? ") //间隔5秒执行
     public void doDealSpiderTask() {
-        System.out.println("test for spring scheduled");
+        //System.out.println("test for spring scheduled");
         String dealUrl= Property.getProperty("spiderUrl","dealUrl");
         String canDealUrl=Property.getProperty("spiderUrl","canDealUrl");
         String stockDealUrl=Property.getProperty("spiderUrl","stockDealUrl");

@@ -65,7 +65,11 @@ public class RegionCountService {
                 reader.close();
                 RegionCount group = JSON.parseObject(line, RegionCount.class);
                 System.out.println(group);
-                dayDeal.add(group);
+                if(group==null){
+                    System.out.println("error:can't parseObject from fileSystem");
+                }else {
+                    dayDeal.add(group);
+                }
             }
         }
 
