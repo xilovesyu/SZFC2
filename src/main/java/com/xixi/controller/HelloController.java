@@ -21,4 +21,12 @@ public class HelloController {
     public String toCanSale(){
         return "CanSalePage";
     }
+    @RequestMapping("/StockSalePage")
+    public String toStockSale(){
+        return "StockSalePage";
+    }
+    @RequestMapping("/StockCanSalePage")
+    public String toStockCanSale(){
+        return "StockCanSalePage";
+    }
 }

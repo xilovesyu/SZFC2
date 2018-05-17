@@ -73,4 +73,56 @@ public class RegionCountController {
         System.out.println(JSON.toJSONString(list));
         return "{\"code\":0,\"msg\":\"ok\",\"count\":"+list.length+",\"data\":"+JSON.toJSONString(list)+"}";
     }
+
+
+    //二手房交易的查询(交易量)
+    @RequestMapping(value="/queryStockDealCount",produces="application/json;charset=utf-8")
+    @ResponseBody
+    public String CountStockDealTable(HttpServletRequest request){
+        String start = request.getParameter("startDate");
+        String end = request.getParameter("endDate");
+        start=start.replace("-",".");
+        end=end.replace("-",".");
+        RegionCount regionCount= null;
+        try {
+            regionCount = regionCountService.monthdaydeal("stockDealLocation",start,end);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Map<String,AreaCount> map= regionCount.getAreas();
+        AreaCount[] list=new AreaCount[map.size()];
+        int i=0;
+        for (String key : map.keySet()){
+            list[i]=(map.get(key));
+            i++;
+        }
+        System.out.println("received");
+        System.out.println(JSON.toJSONString(list));
+        return "{\"code\":0,\"msg\":\"ok\",\"count\":"+list.length+",\"data\":"+JSON.toJSONString(list)+"}";
+    }
+    //可以交易总量
+    @RequestMapping(value="/queryStockCount",produces="application/json;charset=utf-8")
+    @ResponseBody
+    public String CountStockDealTable2(HttpServletRequest request){
+        String start = request.getParameter("startDate");
+        String end = request.getParameter("endDate");
+        start=start.replace("-",".");
+        end=end.replace("-",".");
+        RegionCount regionCount= null;
+        try {
+            regionCount = regionCountService.monthdaydeal("canStockDealLocation",start,end);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Map<String,AreaCount> map= regionCount.getAreas();
+        AreaCount[] list=new AreaCount[map.size()];
+        int i=0;
+        for (String key : map.keySet()){
+            list[i]=(map.get(key));
+            i++;
+        }
+        System.out.println("received");
+        System.out.println(JSON.toJSONString(list));
+        return "{\"code\":0,\"msg\":\"ok\",\"count\":"+list.length+",\"data\":"+JSON.toJSONString(list)+"}";
+    }
 }

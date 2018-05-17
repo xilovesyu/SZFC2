@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="layui-row">
-    <h2>每日成交量系统</h2>
+    <h2>每日新房成交量系统</h2>
 </div>
 <hr class="layui-bg-red">
 <br/>

@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class Excel {
 
-    public static File createExcel(String fileName, RegionCount dayDeal) throws IOException {
+    public static File createExcel(String fileName, RegionCount dayDeal,String ExcelLocation) throws IOException {
         Map<String, AreaCount> maps = dayDeal.getAreas();//每日成交量数据
         NumberFormat numberFormat = NumberFormat.getNumberInstance();//
         numberFormat.setMaximumFractionDigits(2);//保留两位小数
@@ -223,8 +223,8 @@ public class Excel {
             cell.setCellValue(0.00);
         }
 
-        String filePath = Property.getProperty("fileLocation", "excelLocation");
-        File file = new File(filePath + fileName);
+       // String filePath = Property.getProperty("fileLocation", "excelLocation");
+        File file = new File(ExcelLocation + fileName);
         if (file.exists()) {
             file.delete();
         } else {
@@ -237,7 +237,7 @@ public class Excel {
         return file;
     }
 
-    public static File createExcel2(String fileName,RegionCount dayDeal) throws IOException {
+    public static File createExcel2(String fileName,RegionCount dayDeal,String ExcelLocation) throws IOException {
         Map<String, AreaCount> maps = dayDeal.getAreas();//每日成交量数据
         NumberFormat numberFormat = NumberFormat.getNumberInstance();//
         numberFormat.setMaximumFractionDigits(2);//保留两位小数
@@ -370,8 +370,8 @@ public class Excel {
         cell.setCellValue(numberFormat.format(countzongzhuarea)+"平方米");
 
 
-        String filePath = Property.getProperty("fileLocation", "excelLocation");
-        File file = new File(filePath + fileName);
+        //String filePath = Property.getProperty("fileLocation", "excelLocation");
+        File file = new File(ExcelLocation + fileName);
         if (file.exists()) {
             file.delete();
         } else {
