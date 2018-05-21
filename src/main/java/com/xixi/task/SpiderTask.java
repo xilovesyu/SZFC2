@@ -20,15 +20,17 @@ public class SpiderTask {
         String canDealUrl=Property.getProperty("spiderUrl","canDealUrl");
         String stockDealUrl=Property.getProperty("spiderUrl","stockDealUrl");
         String canStockDealUrl=Property.getProperty("spiderUrl","canStockDealUrl");
-
+        String preSaleUrl=Property.getProperty("spiderUrl","preSaleUrl");
+        //新房
         Spider.create(new DealSpider()).addUrl(dealUrl).thread(1).run();
         Spider.create(new CanDealSpider()).addUrl(canDealUrl).thread(1).run();
 
-
+        //二手房
         Spider.create(new StockDealSpider()).addUrl(stockDealUrl).thread(1).run();
         StockDealSpider spider=new StockDealSpider();
         spider.saleOrCanSaleLocation="canStockDealLocation";
         Spider.create(spider).addUrl(canStockDealUrl).thread(1).run();
-       // Spider.create(new CanDealSpider()).addUrl(canDealUrl).thread(1).run();
+
+        //预售证信息
     }
 }

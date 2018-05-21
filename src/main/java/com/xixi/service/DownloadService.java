@@ -57,7 +57,7 @@ public class DownloadService {
                 file=Excel.createExcel(filename,dayDeal,filePath2);
                 break;
             case "canStockDealLocation":
-                file=Excel.createExcel(filename,dayDeal,filePath2);
+                file=Excel.createExcel2(filename,dayDeal,filePath2);
                 break;
                 default:
                     System.out.println("error download");

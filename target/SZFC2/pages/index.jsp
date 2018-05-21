@@ -18,5 +18,8 @@
     <h2>二手房情况</h2>
     1.<a href="/SZFC2/StockSalePage">每日成交量情况</a>
     2.<a href="/SZFC2/StockCanSalePage">每日可售量情况</a>
+<br>
+<br>
+    <a href="/SZFC2/SetModule">微信模板设置</a>
 </body>
 </html>

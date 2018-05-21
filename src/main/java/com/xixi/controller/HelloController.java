@@ -29,4 +29,8 @@ public class HelloController {
     public String toStockCanSale(){
         return "StockCanSalePage";
     }
+    @RequestMapping("/SetModule")
+    public String toModule(){
+        return "Module";
+    }
 }
