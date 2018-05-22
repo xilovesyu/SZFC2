@@ -125,6 +125,20 @@
             <artifactId>table-to-xls</artifactId>
             <version>0.0.1-RELEASE</version>
         </dependency>
+
+        <!-- okHttpClient -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <!--jsoup 解析 -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>SZFC2</finalName>

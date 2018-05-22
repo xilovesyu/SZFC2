@@ -106,7 +106,7 @@ public class CanDealSpider implements PageProcessor {
 
         Spider.create(spider).addUrl(por.getProperty("candealurl")).thread(1).run();
 
-        System.out.println(spider.getDayDeal().toString());;
+        System.out.println(spider.getDayDeal().toString());
 
     }
 }
