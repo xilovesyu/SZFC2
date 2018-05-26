@@ -3,7 +3,7 @@ package com.xixi.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**c测试
+/**路径跳转
  *
  * Created by xijiaxiang on 2017/11/10.
  */
@@ -32,5 +32,9 @@ public class HelloController {
     @RequestMapping("/SetModule")
     public String toModule(){
         return "Module";
+    }
+    @RequestMapping("/ysz")
+    public String toYSZ(){
+        return "ysz";
     }
 }

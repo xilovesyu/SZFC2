@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xixi.mapper.PreSaleDao">
+    <select id="queryById" resultType="PreSaleInfo" parameterType="String">
+        <![CDATA[
+        SELECT
+        yszNumber,
+        projectName,
+        projectAddress,
+        yszStartDate
+        FROM
+        ysz
+        WHERE
+        yszNumber = #{yszNumber}]]>
+    </select>
+
+    <select id="queryAll" resultType="PreSaleInfo">
+        <![CDATA[SELECT
+        yszNumber,
+        projectName,
+        projectAddress,
+        yszStartDate
+        FROM
+        ysz
+        ORDER BY
+        str_to_date(REPLACE(REPLACE(REPLACE(yszStartDate,'年','-'),'月','-'),'日',''),'%Y-%m-%d') desc
+        LIMIT #{offset}, #{limit}]]>
+    </select>
+    
+    <insert id="insertOneYSZ" parameterType="PreSaleInfo">
+        INSERT INTO ysz VALUES (#{yszNumber},#{projectName},#{projectAddress},#{yszStartDate})
+    </insert>
+    
+    <select id="queryCount"  resultType="Integer">
+        <![CDATA[ select count(*) from ysz ]]>
+    </select>
+</mapper>

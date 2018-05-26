@@ -2,11 +2,15 @@ package com.xixi.task;
 
 import com.xixi.spider.CanDealSpider;
 import com.xixi.spider.DealSpider;
+import com.xixi.spider.PreSaleInfoSpider;
 import com.xixi.spider.StockDealSpider;
 import com.xixi.util.Property;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Spider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**run
  * Created by xijiaxiang on 2017/11/10.
@@ -33,4 +37,5 @@ public class SpiderTask {
 
         //预售证信息
     }
+
 }
