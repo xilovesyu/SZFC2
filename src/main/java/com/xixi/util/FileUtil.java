@@ -17,13 +17,14 @@ public class FileUtil {
     }
     public void writeDeal(RegionCount regionCount){
         File file = new File( Property.getProperty("fileLocation",this.key)+File.separator+ MyTimer.getShangHaiTime() + ".txt");
-        //System.out.println(file.getAbsolutePath());
+        System.out.println(file.getAbsolutePath());
         if(file.exists()){
             file.delete();
             try {
                 file.createNewFile();
                 file.setLastModified(Instant.now().toEpochMilli());
             } catch (IOException e) {
+                System.out.println("create house file(/data) error");
                 e.printStackTrace();
             }
         }
@@ -34,8 +35,9 @@ public class FileUtil {
             writer.write(JSON.toJSONString(regionCount));
             writer.newLine();
             writer.close();
+            System.out.println("writing data to file success");
         } catch (Exception e) {
-
+            System.out.println("write data to file error!");
         }
     }
 }

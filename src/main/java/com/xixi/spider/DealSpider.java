@@ -3,8 +3,10 @@ package com.xixi.spider;
 import com.xixi.pojo.AreaCount;
 import com.xixi.pojo.RegionCount;
 import com.xixi.util.FileUtil;
+import com.xixi.util.Property;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +26,7 @@ public class DealSpider implements PageProcessor{
     @Override
     public void process(Page page) {
         Map<String, AreaCount> areas = new HashMap<>();
-
+        //System.out.println(page.toString());
         List<String> trs = page.getHtml().css("#ctl00_MainContent_mytable tr").all();
 
         for (int i = 1; i < trs.size() - 2; i += 2) {
@@ -79,16 +81,26 @@ public class DealSpider implements PageProcessor{
                 tempAreaCount.setFeiZhu_Area(countarea - zhuarea);
             }
             areas.put(tempAreaCount.getAreaName(),tempAreaCount);
+            System.out.println(tempAreaCount.toString());
         }
         regionCount.setAreas(areas);
-
+        System.out.println("start from spider to writing data");
         FileUtil fileUtil=new FileUtil("dealLocation");
         fileUtil.writeDeal(regionCount);
     }
 
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
+    private Site site = Site.me().setRetryTimes(3).setSleepTime(100)
+            .addHeader("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
+            .addHeader("Accept-Encoding","gzip, deflate")
+            .addHeader("Accept-Language","zh-CN,zh;q=0.9,zh-TW;q=0.8,en;q=0.7,ja;q=0.6")
+            .setUserAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36");
     @Override
     public Site getSite() {
         return site;
+    }
+
+    public static void main(String[] args) {
+        String dealUrl= Property.getProperty("spiderUrl","dealUrl");
+        Spider.create(new DealSpider()).addUrl(dealUrl).thread(1).run();
     }
 }

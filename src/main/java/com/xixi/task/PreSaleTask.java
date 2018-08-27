@@ -13,16 +13,16 @@ public class PreSaleTask {
     @Autowired
     PreSaleInfoSpider spider=null;
 
-    @Scheduled(cron = "0 0/20 * * * ? ") //间隔执行
+    @Scheduled(cron = "2 28,55 11/2 * * ? ") //间隔执行
     public void doPreSaleTask() {
-        //预售证信息
-
-        //工业园区,吴中区,相城区,高新区,姑苏区,吴江区
-        String[] regions={"工业园区","吴中区","相城区","高新区","吴江区","姑苏区"};
-        for (String region:regions
+//        //预售证信息
+//
+//        //工业园区,吴中区,相城区,高新区,姑苏区,吴江区
+       String[] regions={"工业园区","吴中区","相城区","高新区","吴江区","姑苏区"};
+       for (String region:regions
                 ) {
             spider.run("",region,"","");
-        }
+       }
 
     }
 }
