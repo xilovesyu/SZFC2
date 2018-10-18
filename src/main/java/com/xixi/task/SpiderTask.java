@@ -21,7 +21,7 @@ import java.util.List;
 @Lazy(false)
 @EnableScheduling
 public class SpiderTask {
-    @Scheduled(cron = "2 24,57 12/2 * * ?") //间隔5秒执行
+    @Scheduled(cron = "56 55,57,58,59 23 * * ?") //间隔5秒执行
     public void doDealSpiderTask() {
         System.out.println("test for spring scheduled");
         String dealUrl= Property.getProperty("spiderUrl","dealUrl");

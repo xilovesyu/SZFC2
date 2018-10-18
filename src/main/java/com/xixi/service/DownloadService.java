@@ -30,7 +30,7 @@ public class DownloadService {
 
         if (fileLocatinKey.equals("dealLocation")) {
             dayDeal = dealService.nowdaydeal();
-            file = Excel.createExcel(filename, dayDeal,filePath1);
+            file = Excel.createExcel(filename, dayDeal,filePath1,true);
         }else if(fileLocatinKey.equals("canDealLocation")){
             dayDeal=dealService.cansaleDeal();
             file= Excel.createExcel2(filename,dayDeal,filePath1);
@@ -48,13 +48,13 @@ public class DownloadService {
         String filePath2 = Property.getProperty("fileLocation", "stockExcelLocation");
         switch(fileLocationKey){
             case "dealLocation":
-                file=Excel.createExcel(filename,dayDeal,filePath1);
+                file=Excel.createExcel(filename,dayDeal,filePath1,true);
                 break;
             case "canDealLocation":
                 file=Excel.createExcel2(filename,dayDeal,filePath1);
                 break;
             case "stockDealLocation":
-                file=Excel.createExcel(filename,dayDeal,filePath2);
+                file=Excel.createExcel(filename,dayDeal,filePath2,false);
                 break;
             case "canStockDealLocation":
                 file=Excel.createExcel2(filename,dayDeal,filePath2);

@@ -13,7 +13,7 @@ public class PreSaleTask {
     @Autowired
     PreSaleInfoSpider spider=null;
 
-    @Scheduled(cron = "2 28,55 11/2 * * ? ") //间隔执行
+    @Scheduled(cron = "56 55,57,58,59 23 * * ?") //间隔执行
     public void doPreSaleTask() {
 //        //预售证信息
 //

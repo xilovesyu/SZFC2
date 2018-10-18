@@ -13,11 +13,10 @@ public class FontAndStyle {
          HSSFCellStyle style;
          public CellStyle(HSSFWorkbook wb,int colorNum){
               style = wb.createCellStyle();
-             style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-             style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
              // styleblue.setFillBackgroundColor(HSSFColor.BLUE.index);
-             style.setFillForegroundColor(HSSFColor.BLUE.index);
-             style.setFillForegroundColor((short) colorNum);
+             //style.setFillForegroundColor(HSSFColor.BLUE.index);
+             style.setFillForegroundColor((short)colorNum);
+             //style.setFillBackgroundColor((short) colorNum);
              style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
         }
 
