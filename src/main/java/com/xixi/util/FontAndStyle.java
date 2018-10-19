@@ -17,7 +17,7 @@ public class FontAndStyle {
              //style.setFillForegroundColor(HSSFColor.BLUE.index);
              style.setFillForegroundColor((short)colorNum);
              //style.setFillBackgroundColor((short) colorNum);
-             style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+             //style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
         }
 
          public HSSFCellStyle getStyle() {
@@ -29,7 +29,7 @@ public class FontAndStyle {
          public Font(HSSFWorkbook wb,String fontName){
              font= wb.createFont();
              font.setFontName(fontName);
-             font.setBoldweight((short) 100);
+             //font.setBoldweight((short) 100);
              font.setFontHeight((short) 300);
              font.setColor(HSSFColor.BLACK.index);
          }

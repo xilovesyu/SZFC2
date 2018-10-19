@@ -363,8 +363,8 @@ public class Excel {
         HSSFCellStyle styleorange = new FontAndStyle().new CellStyle(wb, 53).getStyle();
 
         HSSFCellStyle styledefault = wb.createCellStyle();
-        styledefault.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-        styledefault.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
+        //styledefault.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        //styledefault.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
 
         styleorange.setFont(font);// 设置字体
